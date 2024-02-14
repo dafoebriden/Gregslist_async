@@ -12,7 +12,7 @@ function _drawHouses() {
     setHTML('houseListings', htmlString)
 }
 
-function _drawHousesForm() {
+function _drawHouseForm() {
     if (!AppState.account) {
         return
     }
@@ -21,22 +21,21 @@ function _drawHousesForm() {
     if (!houseFormElement) {
         return
     }
-    houseFormElement.classList.remove('di-none')
+    houseFormElement.classList.remove('d-none')
 
 }
 
 
 export class HousesController {
     constructor() {
-        ('Houses controller loaded')
-        this.getHomes()
+        this.getHouses()
         AppState.on('houses', _drawHouses)
         AppState.on('account', _drawHouses)
-        AppState.on('account', _drawHousesForm)
+        AppState.on('account', _drawHouseForm)
     }
 
 
-    async getHomes() {
+    async getHouses() {
         try {
             await housesService.getHouses
             Pop.success('Got Houses!')
