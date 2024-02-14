@@ -8,7 +8,7 @@ import { setHTML } from "../utils/Writer.js"
 function _drawHouses() {
     const houses = AppState.houses
     let htmlString = ''
-    houses.forEach(house => htmlString += house.CardHTMLTemplate)
+    houses.forEach(house => htmlString += house.HousesCardHTMLTemplate)
     setHTML('houseListings', htmlString)
 }
 
@@ -30,7 +30,7 @@ export class HousesController {
     constructor() {
         ('Houses controller loaded')
         this.getHomes()
-        AppState.on('homes', _drawHouses)
+        AppState.on('houses', _drawHouses)
         AppState.on('account', _drawHouses)
         AppState.on('account', _drawHousesForm)
     }

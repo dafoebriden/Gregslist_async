@@ -17,7 +17,7 @@ class HousesService {
 
     async removeHouse(houseId) {
         const response = await api.delete(`api/houses/${houseId}`)
-        const houseIndex = AppState.houses.findIndex(house => house.id == houseId)
+        const houseIndex = AppState.houses.findIndex(house => house.creatorId == houseId)
         if (houseIndex == -1) {
             throw new Error('Index was -1, you messes up the findIndex')
         }
